@@ -4,8 +4,15 @@ module.exports = httpServer => {
     const io = new Server(httpServer);
 
     io.on("connection", socket => {
-
-        console.log(socket.id);
+        const cookie = socket.handshake.headers.cookie
+        const user = cookie.split("=").pop()
+        
+        socket.on("message",message => {
+            // se emite a todos los conectados
+            io.emit("senMessageconnected",{
+                user,message
+            });
+        })
 
     });
 

@@ -1,7 +1,10 @@
 const express = require("express");
 const { createServer } = require("http");
 const realtimeServer = require("./realtimeServer");
+
 const path = require("path");
+const cookieParser = require("cookie-parser");
+
 require("dotenv").config();  // Cargar variables de entorno
 const app = express();
 const httpServer = createServer(app);
@@ -9,6 +12,7 @@ const httpServer = createServer(app);
 // Settings
 app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"))
+app.use(cookieParser())
 
 // Routes
 app.use( require("./routes") );

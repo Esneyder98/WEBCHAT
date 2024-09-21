@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <title>¡Web Chat!</title>
 </head>
 <body>
-    <h1>Prueba inicial</h1>
-
     
+    <header>
+        <h1>Web Chat</h1>
+    </header>
+
+    <main>
+
+        <div id="all-messages"></div>
+
+        <div class="send-message">
+            <input type="text" id="message">
+            <button type="button" id="send-message" class="btn secondary">Enviar</button>
+        </div>
+
+    </main>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/script.js"></script>
+
 </body>
 </html>
